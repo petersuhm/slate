@@ -1,5 +1,5 @@
 ---
-title: Swagger Petstore 1.0.0
+title: Timekit API v2
 
 toc_footers:
 - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
@@ -7,14 +7,13 @@ toc_footers:
 search: true
 ---
 
-# Swagger Petstore 1.0.0
+# Timekit API v2
 
 > ### Produces
-**Schemes**: `http`
+> **Schemes**: `http`  
+> **Host**: `petstore.swagger.io`  
+> **Base path**: `/v2`  
 
-**Host**: `petstore.swagger.io`
-
-**Base path**: `/v2`
 ### Authorization: petstore_auth
 Type | Description
 --- | ---
@@ -23,6 +22,25 @@ oauth2 |
 Type | Name | In | Description
 --- | --- | --- | ---
 apiKey | api_key | header | 
+
+# Building booking experiences with Timekit
+
+### INTRODUCTION
+
+Timekit's booking engine is a hosted and flexible solution to handle booking flows for your app. Bookings can follow different graphs, which are a pre-defined set of steps that can trigger actions upon state change, such as sending out emails or trigger webhooks. The booking engine has graphs for many different use cases, such as instant bookings, bookings that need confirmation, bookings that involve a payment step, bookings that involve groups or classes etc.
+
+### UNDERSTANDING GRAPHS
+
+Graphs are the "blueprints" that bookings are based on. They define different actions and transitions that bookings can go through, based on your business logic. If you are looking to set up a 1-to-1 booking flow, currently there are two graphs available:
+
+1) instant - Instant booking where new bookings are auto-confirmed
+2) confirm_decline - New bookings start in a tentative state and you can either confirm or decline them.
+
+If you are looking to set up a 1-to-many, or group, booking flow, you should read our guide on groups and classes.
+
+When you create a booking, you chose which flow graph it should follow. A JSON representation of the flow graphs can be retrieved by calling this endpoint and a Graphviz PNG representation of the flow by calling this instead.
+
+<img src="https://files.readme.io/f78347e-confirm_decline_graph.png">
 
 # Authentication
 
@@ -76,7 +94,7 @@ Http code | Type | Description
 200 | OK | User was successfully authenticated
 401 | Unauthorized | Could not authorize user based on credentials
 
-# Pet
+# Booking
 ## Add a new pet to the store
 
 ```http

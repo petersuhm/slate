@@ -3,6 +3,8 @@
 @import 'variables';
 @import 'icon-font';
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
 
@@ -93,13 +95,13 @@ html, body {
     input {
       background: $nav-bg;
       border-width: 0 0 1px 0;
-      border-color: $search-box-border-color;
+      border-color: #fff;
       padding: 6px 0 6px 20px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - 30;
       outline: none;
-      color: $nav-text;
+      color: #fff;
       border-radius: 0; /* ios has a default border radius */
     }
 
@@ -626,4 +628,21 @@ html, body {
 
 .highlight, .highlight .w {
   background-color: $code-bg;
+}
+
+// OVERWRITE STUFF
+.tocify-wrapper .tocify-subheader {
+  background: none;
+}
+.tocify-wrapper .tocify-focus {
+  box-shadow: none;
+}
+.page-wrapper {
+  background-color: #f8f9fa;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color:    #fff;
+}
+body {
+  font-family: "Open Sans", "sans-serif";
 }
